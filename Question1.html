@@ -163,7 +163,7 @@
             const amount = getNumber($get("amount").value);
             const ex = new expense(id, name, email, mobile, date, amount);
             mgr.addExpense(ex);
-            alert("Expense added to the database");
+            alert("Entry added to the database");
             $get("name").value = "";
             $get("email").value = "";
             $get("mobile").value = "";
@@ -189,7 +189,7 @@
           <input type="number" id="mobile" placeholder="Enter Mobile Number">
         <input type="date" id="date" placeholder="Enter the Date">
         <input type="number" id="amount" placeholder="Enter the Amount">
-        <button onclick="onAddExpense()">Add Expense</button>
+        <button onclick="onAddExpense()">Add Entry</button>
     </div>
 </body>
 </html>
