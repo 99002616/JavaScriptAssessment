@@ -1,58 +1,93 @@
-class Customer{
-	constructor(name,email,billdate,phone,billamount){
-		this.name=name;
-		this.email=email;
-		this.billdate=billdate;
-		this.phone=phone;
-		this.billamount=billamount;
-	}
-	
-}
-function employeevalidation()
-{
-	this.name!=[@,#,$];
-}
-}
-
-const getDate = function(dt){
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    const year = dt.getFullYear();
-    const month = months[dt.getMonth()];
-    const day = dt.getDate();
+describe('Suite  to test classses',()=> {
+    let emp=null;
     
-  if (this.phone!==sizeof(10))
-  {
-  	throw Error ("invalid phone number");
-  }
 
-  if(this.billamount<500)
-  {
-  	throw Error("Bill amount should be minimum of rupees 500");
-  }
-  function validate(){
-            //get all the values....
-            let name = document.regForm.name.value;
-            let email = document.regForm.email.value;
-            let mobile = document.regForm.phone.value;
-          
-            //name validation
-            if(name == "" || name == null){
-                showErr("errName", "Name is mandatory")
-                return false;
-            }else{
-                showErr("errName", "")
+
+    xit('should set id',()=>{
+       const emp = new employee("RAJAN","pq%n")
+       const b=emp.validateName(emp);
+        expect(true).toBe(b)
+    })
+    xit('should set email',()=>{
+        const emp = new employee("rajan","pqn")
+        const e=emp.validateEmail(emp);
+         expect(true).toBe(e)
+     })
+
+
+     xit('should set Phone',()=>{
+        const emp = new employee("rajan","pqn","7004027535",500)
+        const p=emp.validatePhone(emp);
+         expect(true).toBe(p)
+     })
+
+     it('should set Phone',()=>{
+        const emp = new employee("rajan","pqn","7004027535",600)
+        const a=emp.validateBillAmt(emp);
+         expect(true).toBe(a)
+     })
+     
+    
+})
+
+
+
+
+
+
+
+
+class employee{
+    constructor(name,email,phone,amt){
+        this.name=name;
+        this.email=email;
+        this.phone=phone;
+        
+        
+        
+    }
+
+    display(){
+        return this.name;
+    };
+
+    validateName(emp){
+        name=emp.name;
+        var letters = /^[A-Za-z]+$/;
+        var len=name.length;
+        //console.log(len)
+        if(name.match(letters) && (len>=5) )
+        {
+            return true;
+           }
+         else
+           {
+           alert("message");
+           return false;
+           }
+    }
+
+    validateEmail(emp){
+       var email=emp.email;
+        var mailformat= /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+          if (email.match(mailformat))
+           {
+             return true
             }
-            //email validation    
-            if(email == ""){
-                showErr("errEmail", "Email is mandatory")
-                return false;
-            }else{
-                showErr("errEmail", "")
+             return (false)
+
             }
-            let regEx = new RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$");
-            if(regEx.test(email) == false){
-                showErr("errEmail", "Email is not in a valid format")
-                return false;
-            } else {
-                showErr("errEmail", "")
+        validatePhone(emp){
+       var phone=emp.phone;
+        var phoneFor=/^\d{10}$/;
+          if (phone.match(phoneFor))
+           {
+             return true
             }
+             return (false)
+
+            }
+        
+            
+
+        }
