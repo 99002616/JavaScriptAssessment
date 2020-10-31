@@ -95,14 +95,7 @@
             regEx = new RegExp("/^[1-9]\d{10}$/");
             if(mobile == "" || (!regEx.test(mobile)))
                 return false;
-            //country validation
-            if(country == "Select Option")
-                return false;
-
-            //gender validation:
-            if(gender == "")
-                return false;    
-            return true;//After all the validations are done successfully
+           
             class expense{
             constructor(id, desc, date, amount) {
                 this.slNo = id;
