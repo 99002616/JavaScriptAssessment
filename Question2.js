@@ -22,12 +22,12 @@ const getDate = function(dt){
     
   if (this.phone!==sizeof(10))
   {
-  	throw ("invalid phone number");
+  	throw Error ("invalid phone number");
   }
 
   if(this.billamount<500)
   {
-  	throw ("Bill amount should be minimum of rupees 500");
+  	throw Error("Bill amount should be minimum of rupees 500");
   }
   function validate(){
             //get all the values....
